@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>renforcement JS</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="email" placeholder="@"><br>
+        <input type="password" placeholder="Mot de passe"><br>
+        <button>Connexion</button>
+    </form>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <!-- CONSIGNE : Avec l'aide de jQuery, vous devrez :
+    
+        1. A l'aide d'une API de Géolocalisation, vous affichez dans un paragraphe du formulaire l'adresse IP ainsi que la Ville et/ou Code Postal de l'utilisateur connecté.
+        
+        // -- https://ipapi.co
+     
+    -->
+<script>
+$(function(){
+
+    //2 façon de proceder
+    $.ajax('https://ipapi.co/json/').done(function(data) {
+        //console.log(data.ip);  
+    });
+
+
+
+    $.getJSON('https://ipapi.co/json/', function(data){
+ // console.log(data);
+
+ $(`
+    <p>
+        <strong>Votre Ip est :</strong> ${data.ip}<br>
+        <strong>Vous ëtes en :</strong> ${data.region}
+        <p>
+            `).css({'background': 'yellow'}).appendTo('form')
+
+                 
+ 
+
+});
+
+
+
+    
+
+
+
+});
+</script>
+
+</body>
+
+</html>
