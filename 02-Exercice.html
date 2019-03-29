@@ -20,46 +20,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-        <!-- CONSIGNE : Avec l'aide de jQuery, vous devrez :
+    <!-- CONSIGNE : Avec l'aide de jQuery, vous devrez :
     
         1. A l'aide d'une API de Géolocalisation, vous affichez dans un paragraphe du formulaire l'adresse IP ainsi que la Ville et/ou Code Postal de l'utilisateur connecté.
         
         // -- https://ipapi.co
      
     -->
-<script>
-$(function(){
+    <script>
+        $(function () {
 
-    //2 façon de proceder
-    $.ajax('https://ipapi.co/json/').done(function(data) {
-        //console.log(data.ip);  
-    });
+            //2 façons de proceder:
+            //1.Requete AJAX :
+            $.ajax('https://ipapi.co/json/').done(function (data) {
+                //console.log(data.ip);  
+            });
 
 
+            //2. Requete simple Json :
+            $.getJSON('https://ipapi.co/json/', function (data) {
+                // console.log(data);
 
-    $.getJSON('https://ipapi.co/json/', function(data){
- // console.log(data);
-
- $(`
+                $(`
     <p>
         <strong>Votre Ip est :</strong> ${data.ip}<br>
         <strong>Vous ëtes en :</strong> ${data.region}
         <p>
-            `).css({'background': 'yellow'}).appendTo('form')
-
-                 
- 
-
-});
+            `).css({ 'background': 'yellow' }).appendTo('form')
 
 
 
-    
 
+            });
 
-
-});
-</script>
+        });
+ </script>
 
 </body>
 
